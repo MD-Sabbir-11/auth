@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Supabase Auth Demo</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+
+  <h2>Sign Up</h2>
+  <input id="signup-email" type="email" placeholder="Email"><br><br>
+  <input id="signup-password" type="password" placeholder="Password"><br><br>
+  <button onclick="signUp()">Sign Up</button>
+
+  <hr>
+
+  <h2>Log In</h2>
+  <input id="login-email" type="email" placeholder="Email"><br><br>
+  <input id="login-password" type="password" placeholder="Password"><br><br>
+  <button onclick="login()">Log In</button>
+
+  <!-- Supabase + custom JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+  <script src="auth.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <meta charset="UTF-8" />
+</head>
+<body>
+
+  <h1>Dashboard</h1>
+  <p id="user-email">Loading...</p>
+  <button onclick="logout()">Logout</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="supabase.js"></script>
+
+  <script>
+    // Check if user is logged in
+    async function checkAuth() {
+      const { data } = await supabase.auth.getSession();
+
+      if (!data.session) {
+        alert("You must log in first.");
+        window.location.href = "index.html";
+      } else {
+        document.getElementById("user-email").innerText =
+          "Logged in as: " + data.session.user.email;
+      }
+    }
+
+    checkAuth();
+
+    async function logout() {
+      await supabase.auth.signOut();
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>
